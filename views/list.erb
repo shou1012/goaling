@@ -1,0 +1,31 @@
+<h2>Your Goals</h2>
+  <% if @goals.empty? == true  %>
+  <h1> Enter New Goals </h1>
+  <% else %>
+    <table>
+      <thead>
+        <tr>
+          <th>your goals</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @goals.each do |goal| %>
+      <tr>
+        <td><%= goal.title %></td>
+      </tr>
+      </tbody>
+    </table>
+    <% end %>
+  <% end %>
+
+  <form action="/goals" method="post">
+    <input type="text" name="title" placeholder="タイトル"><br>
+    <input type="submit" value="登録">
+  </form>
+
+<% unless session[:user] %>
+  <a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br>
+<% else %>
+  <a href="/signout">ログアウト</a>
+  <h2><%= User.find(session[:user]).name %>としてログイン</h2>
+<% end %>
