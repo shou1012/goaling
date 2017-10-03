@@ -1,5 +1,6 @@
 require 'bundler/setup'
 Bundler.require
+require 'sinatra/reloader' if development?
 require 'sinatra/activerecord'
 require './models'
 
@@ -16,9 +17,17 @@ helpers do
   end
 end
 
+before '/goals' do
+  if current_user.nil?
+    redirect '/'
+  end
+end
+
 get '/' do
   erb :index
 end
+
+# ユーザー周りに関する実装
 
 get '/signin' do
   erb :sign_in
@@ -58,6 +67,9 @@ end
 #   params.require(:user).permit(:name, :email, :password, :password_confirmation)
 # end
 
+
+#　ゴール周りの実装
+
 get '/goals' do
   if Goal.all.length > 0
     @goals = Goal.all
@@ -73,5 +85,23 @@ end
 
 post '/goals' do
   current_user.goals.create(title: params[:title])
+  redirect '/goals'
+end
+
+post '/goals/:id/delete' do
+  goal = Goal.find(params[:id])
+  goal.destroy
+  redirect '/goals'
+end
+
+get '/goals/:id/edit' do
+  @goal = Goal.find(params[:id])
+  erb :goal_edit
+end
+
+post '/goals/:id' do
+  goal = Goal.find(params[:id])
+  goal.title = params[:title]
+  goal.save
   redirect '/goals'
 end

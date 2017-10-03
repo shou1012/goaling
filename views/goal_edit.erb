@@ -1,0 +1,4 @@
+<form action="/goals/<%= @goal.id %>" method="post">
+  <input type="text" name="title" placeholder="Enter" value="<%= CGI.escapeHTML(@goal.title) %>"><br>
+  <input type="submit" value="Edit">
+</form>
