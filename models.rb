@@ -20,3 +20,7 @@ class Goal < ActiveRecord::Base
     presence: true
   belongs_to :user
 end
+
+class Check < ActiveRecord::Base
+  belongs_to :goal
+end

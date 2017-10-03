@@ -11,7 +11,12 @@
       <tbody>
       <% @goals.each do |goal| %>
       <tr>
-        <td><%= CGI.escapeHTML(goal.title) %></td>
+        <td>
+          <form action="/goals/<%= goal.id %>/check" method="post">
+            <input type="submit" value="Check">
+          </form>
+        </td>
+        <td><a href="/goals/<%= goal.id %>"><%= CGI.escapeHTML(goal.title) %></a></td>
         <td>
           <form action="/goals/<%= goal.id %>/delete" method="post">
             <input type="submit" value="Delete">

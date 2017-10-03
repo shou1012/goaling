@@ -3,6 +3,7 @@ Bundler.require
 require 'sinatra/reloader' if development?
 require 'sinatra/activerecord'
 require './models'
+require 'date'
 
 enable :sessions
 
@@ -103,5 +104,19 @@ post '/goals/:id' do
   goal = Goal.find(params[:id])
   goal.title = params[:title]
   goal.save
+  redirect '/goals'
+end
+
+get  '/goals/:id' do
+  @goal = Goal.find(params[:id])
+  @checks = Check.where(goal_id: params[:id])
+  erb :goal_show
+end
+
+post '/goals/:id/check' do
+  @check = Check.create(
+    :goal_id => params[:id],
+    :checked_time => Time.now
+  )
   redirect '/goals'
 end
