@@ -1,4 +1,8 @@
-<h2>Here's your Friends</h2>
-  <% @users.each do |user| %>
-  <%= user.name %>
-<% end %>
+<div class = "forms">
+  <form action="/search/name" method="post">
+    <h2>Search Friends</h2>
+    <input type="text" name="name" placeholder="User name"><br>
+    <input type="submit" value="Find">
+  </form>
+</div>
+　

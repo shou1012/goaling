@@ -1,5 +1,4 @@
-<h2>Search Friends</h2>
-<form action="/search" method="post">
-  <input type="text" name="name" placeholder="User name"><br>
-  <input type="submit" value="Find">
-</form>
+<h2>Here's your Friends</h2>
+  <% @users.each do |user| %>
+    <a href="/user/<%= user.id %>"><%= user.name %></a>
+  <% end %>

@@ -1,7 +1,12 @@
-<h2>Welcome to Goaling</h2>
-<% unless session[:user] %>
-  <a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br>
-<% else %>
-  <a href="/signout">ログアウト</a>
-  <h2><%= User.find(session[:user]).name %>としてログイン</h2>
-<% end %>
+<div class = "forms">
+  <div class = "form">
+    <h2>Join Goaling</h2>
+    <% unless session[:user] %>
+      <a href="/signin">login</a>
+      <a href="/signup">register</a>
+    <% else %>
+      <li id="signIn"><a href="/signout">logout</a>
+      <h2><%= User.find(session[:user]).name %>としてログイン</h2>
+    <% end %>
+  </div>
+</div>

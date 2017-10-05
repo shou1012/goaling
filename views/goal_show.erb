@@ -1,8 +1,5 @@
 <%= @goal.title %>
 <% @checks.each do |check| %>
-
-<%= check.checked_time %>
-
+  <%= check.checked_time %>
 <% end %>
-
 <%= @checks.count %>

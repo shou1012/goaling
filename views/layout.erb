@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Goaling</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
 <body>
   <% unless session[:user] %>
@@ -10,9 +11,12 @@
     <header>
       <a href="/goals">List</a>
       <a href="/profile">My Page</a>
+      <a href="/search">Search Friends</a>
+      <a href="/notification">Notifications</a>
+      <a href="/timeline">Timeline</a>
+      <a href="/signout">Log out</a>
     </header>
   <% end %>
-
   <%= yield %>
 </body>
 </html>

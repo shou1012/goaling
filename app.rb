@@ -65,6 +65,7 @@ get '/signout' do
 end
 #mypage(じぶんのページ)表示
 get '/profile' do
+  @user = current_user
   @goals = Goal.where(user_id: session[:user])
   @follows = Follow.where(follower_id: session[:user])
   @followers = Follow.where(user_id: session[:user])
@@ -81,14 +82,29 @@ get '/user/:id' do
   erb :userpage
 end
 
-get 'profile/edit' do
+get '/profile/edit' do
+  @user =  current_user
   erb :mypage_edit
+end
+
+post '/profile/edit' do
+  user = User.find_by(id: session[:user])
+  user.update(
+    name: params[:name],
+    email: params[:email]
+  )
+  redirect '/profile'
 end
 
 post '/user/:id/follow' do
   @follow = Follow.create(
     :user_id => params[:id],
     :follower_id => current_user.id
+  )
+  @notification = Notification.create(
+    :status => 'follow',
+    :user_id => current_user.id,
+    :victim_id => params[:id]
   )
   redirect "user/#{params[:id]}"
 end
@@ -99,8 +115,12 @@ post '/user/:id/follow/delete' do
   redirect "user/#{params[:id]}"
 end
 
-get '/search/:name' do
-  @users = User.where(name like params[:name])
+get '/search' do
+  erb :search_friends
+end
+
+post '/search/name' do
+  @users = User.where(name: params[:name])
   erb :search_friends_result
 end
 
@@ -123,7 +143,12 @@ get '/goals/new' do
 end
 #goal 作成
 post '/goals' do
-  current_user.goals.create(title: params[:title])
+  @goal = current_user.goals.create(title: params[:title])
+  @notification = Notification.create(
+    :status => 'new_goal',
+    :goal_id => @goal.id,
+    :user_id => current_user.id
+  )
   redirect '/goals'
 end
 #goal 削除
@@ -156,6 +181,11 @@ post '/goals/:id/check' do
     :goal_id => params[:id],
     :checked_time => Time.now
   )
+  @notification = Notification.create(
+    :status => 'check',
+    :goal_id => params[:id],
+    :user_id => current_user.id
+  )
   redirect '/goals'
 end
 #favorite 作成
@@ -166,7 +196,42 @@ post '/user/:user_id/goal/:goal_id/favorite' do
   @notification = Notification.create(
     :status => 'favorite',
     :goal_id => params[:id],
-    :user_id => current_user.id
+    :user_id => current_user.id,
+    :victim_id => params[:user_id]
   )
   redirect "/user/#{params[:user_id]}"
+end
+
+#timeline表示
+get '/notification' do
+  @notifications = Notification.where(victim_id: session[:user])
+  @users = []
+  @notifications.each do |notification|
+    user_name = User.find_by(id: notification.user_id ).name
+    notification_status = notification.status
+    hash = {}
+    hash[:user_name] = user_name
+    hash[:notification_status] = notification_status
+    @users << hash
+  end
+  erb :notification
+end
+
+get '/timeline' do
+  @friends = Follow.where(follower_id: session[:user])
+  @actions = []
+  @friends.each do |friend|
+    @notifications = Notification.where(user_id: friend.user_id)
+    users = []
+    @notifications.each do |notification|
+      user_name = User.find_by(id: notification.user_id).name
+      notification_status = notification.status
+      hash = {}
+      hash[:user_name] = user_name
+      hash[:notification_status] = notification_status
+      users << hash
+    end
+    @actions << users
+  end
+  erb :timeline
 end

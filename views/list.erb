@@ -1,42 +1,26 @@
-<h2>Your Goals</h2>
+<div class = "lists">
   <% if @goals.empty? == true  %>
-  <h1> Enter New Goals </h1>
+  <h2> Enter New Goals </h2>
   <% else %>
-    <table>
-      <thead>
-        <tr>
-          <th>your goals</th>
-        </tr>
-      </thead>
-      <tbody>
       <% @goals.each do |goal| %>
-      <tr>
-        <td>
+      <ul class = "list">
+        <li>
           <form action="/goals/<%= goal.id %>/check" method="post">
-            <input type="submit" value="Check">
+            <input type="submit" value="c">
           </form>
-        </td>
-        <td><a href="/goals/<%= goal.id %>"><%= CGI.escapeHTML(goal.title) %></a></td>
-        <td>
+          <a href="/goals/<%= goal.id %>"><%= CGI.escapeHTML(goal.title) %></a>
           <form action="/goals/<%= goal.id %>/delete" method="post">
-            <input type="submit" value="Delete">
+            <input type="submit" value="D">
           </form>
-        </td>
-        <td><a href="/goals/<%= goal.id %>/edit">Edit</a></td>
-      </tr>
-      </tbody>
-    </table>
+          <a href="/goals/<%= goal.id %>/edit">E</a>
+        </li>
+      </ul>
     <% end %>
   <% end %>
-
-  <form action="/goals" method="post">
-    <input type="text" name="title" placeholder="Enter new"><br>
-    <input type="submit" value="Add">
-  </form>
-
-<% unless session[:user] %>
-  <a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br>
-<% else %>
-  <a href="/signout">ログアウト</a>
-  <h2><a href="/profile"><%= current_user.id %></a></h2>
-<% end %>
+  <div class = "forms">
+    <form action="/goals" method="post">
+      <input type="text" name="title" placeholder="Enter new"><br>
+      <input type="submit" value="Add">
+    </form>
+  </div>
+</div>

@@ -1,16 +1,8 @@
-<!-- # <%= current_user.name %>
-#
-# <% @goals.each do |goal| %>
-#   <%= goal.title %>
-#   <%= goal.favorite %>
-# <% end %>
-#
-#
-# <%= @follows.count %>
-# <%= @followers.count %> -->
-
-<form action="/profile/edit" method="post">
-  <input type="text" name="name" placeholder="email"><br>
-  <input type="text" name="email" placeholder="email"><br>
-  <input type="submit" value="Send">
-</form>
+<div class = "forms">
+  <form action="/profile/edit" method="post">
+    <h2>Edit profile</h2>
+    <input type="text" name="name" placeholder="name" value="<%= @user.name %>"><br>
+    <input type="text" name="email" placeholder="email" value="<%= @user.email %>"><br>
+    <input type="submit" value="Send">
+  </form>
+</div>

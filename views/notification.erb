@@ -1,0 +1,8 @@
+<ul class='timeline'>
+  <% @users.each do |user| %>
+    <li class="event">
+      <%= user[:user_name] %>さんが
+      あなたを<%= user[:notification_status] %>しました
+    </li>
+  <% end %>
+</ul>
