@@ -1,0 +1,14 @@
+<%= current_user.name %>
+
+<% @goals.each do |goal| %>
+  <%= goal.title %>
+  <%= goal.favorite %>
+<% end %>
+
+
+<%= @follows.count %>
+<%= @followers.count %>
+
+<form action="/profile/edit" method="get">
+  <input type="submit" value="edit">
+</form>

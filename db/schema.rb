@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003111625) do
+ActiveRecord::Schema.define(version: 20171004091533) do
 
   create_table "checks", force: :cascade do |t|
     t.integer "goal_id"
@@ -18,13 +18,28 @@ ActiveRecord::Schema.define(version: 20171003111625) do
     t.index ["goal_id"], name: "index_checks_on_goal_id"
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follower_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
-    t.integer "favorite"
+    t.integer "favorite", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "status"
+    t.integer "user_id"
+    t.integer "goal_id"
+    t.integer "victim_id"
+    t.index ["goal_id"], name: "index_notifications_on_goal_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

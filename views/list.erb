@@ -38,5 +38,5 @@
   <a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br>
 <% else %>
   <a href="/signout">ログアウト</a>
-  <h2><%= User.find(session[:user]).name %>としてログイン</h2>
+  <h2><a href="/profile"><%= current_user.id %></a></h2>
 <% end %>
