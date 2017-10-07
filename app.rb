@@ -66,9 +66,9 @@ end
 #mypage(じぶんのページ)表示
 get '/profile' do
   @user = current_user
-  @goals = Goal.where(user_id: session[:user])
-  @follows = Follow.where(follower_id: session[:user])
-  @followers = Follow.where(user_id: session[:user])
+  @goals = Goal.where(user_id: @user.id)
+  @follows = Follow.where(follower_id: @user.id)
+  @followers = Follow.where(user_id: @user.id)
   erb :mypage
 end
 
@@ -88,11 +88,10 @@ get '/profile/edit' do
 end
 
 post '/profile/edit' do
-  user = User.find_by(id: session[:user])
-  user.update(
-    name: params[:name],
-    email: params[:email]
-  )
+  user = current_user
+  user.name = params[:name]
+  user.email = params[:email]
+  user.save(validate: false)
   redirect '/profile'
 end
 
@@ -130,6 +129,7 @@ end
 #goalリスト
 get '/goals' do
   goal = Goal.where(user_id: session[:user])
+  @date = Date.today
   if goal.all.length > 0
     @goals = goal.all
   else
@@ -229,6 +229,7 @@ get '/timeline' do
       hash = {}
       hash[:user_name] = user_name
       hash[:notification_status] = notification_status
+      hash[:notification_time] = notification.tim
       users << hash
     end
     @actions << users

@@ -1,4 +1,7 @@
-<form action="/goals/<%= @goal.id %>" method="post">
-  <input type="text" name="title" placeholder="Enter" value="<%= CGI.escapeHTML(@goal.title) %>"><br>
-  <input type="submit" value="Edit">
-</form>
+<div class = "forms">
+  <form action="/goals/<%= @goal.id %>" method="post">
+    <h2>Edit Goal</h2>
+    <input type="text" name="title" placeholder="Enter" value="<%= CGI.escapeHTML(@goal.title) %>"><br>
+    <input type="submit" value="Edit">
+  </form>
+</div>

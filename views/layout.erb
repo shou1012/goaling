@@ -4,19 +4,44 @@
     <meta charset="UTF-8">
     <title>Goaling</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
   </head>
 <body>
-  <% unless session[:user] %>
-  <% else %>
-    <header>
-      <a href="/goals">List</a>
-      <a href="/profile">My Page</a>
-      <a href="/search">Search Friends</a>
-      <a href="/notification">Notifications</a>
-      <a href="/timeline">Timeline</a>
-      <a href="/signout">Log out</a>
-    </header>
-  <% end %>
-  <%= yield %>
+  <div id="content">
+    <% if session[:user] %>
+      <header>
+        <a id="menu" href="#animatedModal">
+          <img src="/SVG/menu.svg">
+        </a>
+      </header>
+    <% end %>
+    <%= yield %>
+  </div>
+  <div id="animatedModal">
+    <div class="close-animatedModal">×</div>
+    <div class="modal-content">
+      <ul>
+        <li><a href="/goals">List</a></li>
+        <li><a href="/profile">My Page</a></li>
+        <li><a href="/search">Search Friends</a></li>
+        <li><a href="/notification">Notifications</a></li>
+        <li><a href="/timeline">Timeline</a></li>
+        <li><a href="/signout">Log out</a></li>
+      </ul>
+    </div>
+  </div>
 </body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/scripts/animatedModal.min.js"></script>
+<script>
+  $(function() {
+    // $("#menu").animatedModal();
+    $("#menu").animatedModal({
+      animatedIn:'fadeInDown',
+      animatedOut:'fadeOutUp',
+      animationDuration:'1s',
+      color: '#363333'
+    });
+  });
+</script>
 </html>

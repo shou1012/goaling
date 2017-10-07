@@ -1,20 +1,23 @@
 <div class = "lists">
   <% if @goals.empty? == true  %>
-  <h2> Enter New Goals </h2>
+    <h2> Enter New Goals </h2>
   <% else %>
-      <% @goals.each do |goal| %>
-      <ul class = "list">
-        <li>
-          <form action="/goals/<%= goal.id %>/check" method="post">
-            <input type="submit" value="c">
-          </form>
-          <a href="/goals/<%= goal.id %>"><%= CGI.escapeHTML(goal.title) %></a>
-          <form action="/goals/<%= goal.id %>/delete" method="post">
-            <input type="submit" value="D">
-          </form>
-          <a href="/goals/<%= goal.id %>/edit">E</a>
-        </li>
-      </ul>
+    <h2><%= @date.strftime("%m/%d %a") %></h2>
+    <% @goals.each do |goal| %>
+    <ul class = "list">
+      <li>
+        <form action="/goals/<%= goal.id %>/check" method="post">
+          <input type="image" src="/SVG/checkbox-unchecked.svg" alt="Check">
+        </form>
+        <a href="/goals/<%= goal.id %>"><%= CGI.escapeHTML(goal.title) %></a>
+        <form action="/goals/<%= goal.id %>/delete" method="post">
+          <input type="image" src="/SVG/bin.svg" alt="Delete">
+        </form>
+        <form action="/goals/<%= goal.id %>/edit" method="get">
+          <input type="image" src="/SVG/pencil.svg" alt="Delete">
+        </form>
+      </li>
+    </ul>
     <% end %>
   <% end %>
   <div class = "forms">

@@ -1,8 +1,19 @@
-<%= @user.name %>
-<% @goals.each do |goal| %>
-  <%= goal.title %>
-  <%= goal.favorite %>
-<% end %>
-<%= @follows.count %>
-<%= @followers.count %>
-<a href="/profile/edit">Edit</a>
+<div class = "profile">
+  <img src="/hanchan.png"></img>
+  <h2>@<%= @user.name %>
+    <a href="/profile/edit"><img src="/SVG/pencil.svg" alt="Edit"></a>
+  </h2>
+  <div class="friends">
+    <p>Follow <%= @follows.count %></p>
+    <p>Follower <%= @followers.count %></p>
+  </div>
+  <ul class = "list">
+    <% @goals.each do |goal| %>
+    <li>
+      <%= goal.title %>
+      <img src="/SVG/star.svg" alt="favorite">
+      <%= goal.favorite %>
+    </li>
+    <% end %>
+  </ul>
+</div>

@@ -7,6 +7,37 @@
   box-sizing: border-box;
 }
 
+header {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#animatedModal {
+  padding: 15px;
+}
+
+.close-animatedModal {
+  text-align: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.modal-content ul {
+  width: 300px;
+  margin: 50px auto;
+  font-size: 24px;
+}
+
+.modal-content ul li {
+  margin: 0 10px 20px;
+}
+
+.modal-content a {
+  color: #fff;
+}
+
 /*フォーム系*/
 
 .forms form {
@@ -87,12 +118,8 @@
 }
 
 /*タイムライン*/
-
-*,*:after,*:before{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
-
-
 .timeline {
-  margin: 0px 30px;
+  margin: auto;
   max-width: 40em;
   overflow:hidden;
   height: auto;
@@ -112,27 +139,37 @@
   list-style-type: none;
   display: block;
   padding: .4em;
-  background: #565656;
   color: #f6e9e9;
   border: 1px solid lighten($bg-entry,30%);
   text-decoration: none;
 }
 
-.list{
-  margin: 0px 30px;
-  max-width: 40em;
+.lists h2 {
+  width: 276px;
+  font-size: 30px;
+  text-align: center;
+  color: #e4dbdb;
+  padding-bottom: 23px;
+  margin: 60px auto 23px;
+  border-bottom: solid 1px;
+}
+
+.list {
+  margin: 0px auto 0;
+  width: 400px;
   overflow:hidden;
   height: auto;
   position: relative;
+  margin: auto;
   padding:0px;
   list-style-type:none;
 }
 
-.lists li{
+.list li{
   position:relative;
   text-align:center;
   clear: right;
-  width: 95%;
+  margin: 30px;
   height: 24px;
   border-radius: 5px;
   list-style-type: none;
@@ -140,16 +177,57 @@
   text-decoration: none;
 }
 
-.lists input{
+.list input{
   float: left;
   font-size: 24px;
   color: #f6e9e9;
-  margin-right: 30px;
+  margin-right: 20px;
 }
-.lists a{
+
+.list input:last-child{
   float: left;
   font-size: 24px;
   color: #f6e9e9;
-  margin-right: 30px;
+}
+
+.list a{
+  float: left;
+  font-size: 24px;
+  color: #f6e9e9;
+  margin-right: 20px;
   text-decoration: none;
+}
+
+.profile{
+  margin:70px auto;
+  width: 375px;
+  text-align:center;
+  padding:40px;
+  border-radius: 8px;
+}
+
+.profile h2{
+  color: #f6e9e9;
+  font-size: 24px;
+  text-align: center;
+  margin: 30px;
+}
+
+.profile p{
+  color: #f6e9e9;
+  font-size: 20px;
+  float: left;
+  margin: 0px 30px;
+}
+
+.friends{
+  width: 400px;
+  margin: auto;
+}
+
+.profile .list li{
+  float: left;
+  font-size: 24px;
+  color: #f6e9e9;
+  margin: 20px;
 }

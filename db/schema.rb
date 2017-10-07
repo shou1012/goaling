@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20171004091533) do
     t.integer "user_id"
     t.integer "goal_id"
     t.integer "victim_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["goal_id"], name: "index_notifications_on_goal_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>pencil</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="list" transform="translate(-317.000000, -293.000000)" fill-rule="nonzero" fill="#979797">
+            <g id="pencil" transform="translate(317.000000, 293.000000)">
+                <path d="M16.875,0 C18.600625,0 20,1.399375 20,3.125 C20,3.82875 19.7675,4.4775 19.375,5 L18.125,6.25 L13.75,1.875 L15,0.625 C15.5225,0.2325 16.17125,0 16.875,0 Z M1.25,14.375 L0,20 L5.625,18.75 L17.1875,7.1875 L12.8125,2.8125 L1.25,14.375 Z M13.97625,7.10125 L5.22625,15.85125 L4.14875,14.77375 L12.89875,6.02375 L13.97625,7.10125 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
