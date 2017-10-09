@@ -1,4 +1,29 @@
-<svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="27px" viewBox="0 0 37 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0.372340426,1 L34.6276596,1" id="path-1"></path>
+        <path d="M0.372340426,14 L34.6276596,14" id="path-2"></path>
+        <path d="M0.372340426,26 L34.6276596,26" id="path-3"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="my-page(他人)" transform="translate(-29.000000, -33.000000)" stroke="#E4DBDB">
+            <g id="Group" transform="translate(30.000000, 33.000000)">
+                <g id="Line">
+                    <use stroke-width="2" xlink:href="#path-1"></use>
+                    <use stroke-width="1" xlink:href="#path-1"></use>
+                </g>
+                <g id="Line">
+                    <use stroke-width="2" xlink:href="#path-2"></use>
+                    <use stroke-width="1" xlink:href="#path-2"></use>
+                </g>
+                <g id="Line">
+                    <use stroke-width="2" xlink:href="#path-3"></use>
+                    <use stroke-width="1" xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

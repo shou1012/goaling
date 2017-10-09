@@ -1,18 +1,25 @@
-<%= @user.id %>
-<%= @user.name %>
-<% if @mutual_follower.empty? == true %>
-  <form action="/user/<%= @user.id %>/follow" method="post">
-    <input type="submit" value="follow">
+<div class = "profile">
+  <img src="/hanchan.png"></img>
+  <h2>@<%= @user.name %></h2>
+  <div class="follow">
+  <% if @mutual_follower.empty? == true %>
+    <form action="/user/<%= @user.id %>/follow" method="post">
+      <input type="submit" value="follow">
+    </form>
+  <% else %>
+  <form action="/user/<%= @user.id %>/follow/delete" method="post">
+    <input type="submit" value="Unfollow">
   </form>
-<% else %>
-<form action="/user/<%= @user.id %>/follow/delete" method="post">
-  <input type="submit" value="Unfollow">
-</form>
-<% end %>
-<% @goals.each do |goal| %>
-  <%= goal.title %>
-  <%= goal.favorite %>
-  <form action="/user/<%= @user.id %>/goal/<%= goal.id %>/favorite" method="post">
-    <input type="submit" value="ファボ">
-  </form>
-<% end %>
+  <% end %>
+  </div>
+  <ul class = "list">
+    <% @goals.each do |goal| %>
+    <li>
+      <%= goal.title %>
+      <form action="/user/<%= @user.id %>/goal/<%= goal.id %>/favorite" method="post">
+        <input type="image" src="/SVG/star.svg" alt="favorite">
+      </form>
+    </li>
+    <% end %>
+  </ul>
+</div>

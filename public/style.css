@@ -8,14 +8,12 @@
 }
 
 header {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  margin: 50px;
 }
 
 #animatedModal {
   padding: 15px;
+  size: 100px;
 }
 
 .close-animatedModal {
@@ -130,19 +128,28 @@ header {
 
 .event {
   position:relative;
-  text-align:center;
   clear: right;
-  width: 95%;
-  margin: 1em 2.5%;
+  width: 90%;
+  margin: 1em 5%;
 
   border-radius: 5px;
   list-style-type: none;
   display: block;
   padding: .4em;
   color: #f6e9e9;
-  border: 1px solid lighten($bg-entry,30%);
   text-decoration: none;
 }
+
+.event img{
+  display: inline;
+  width: 58px;
+  height: 58px;
+}
+.event p{
+  display: inline;
+  margin: 30px;
+}
+
 
 .lists h2 {
   width: 276px;
@@ -154,48 +161,53 @@ header {
   border-bottom: solid 1px;
 }
 
-.list {
+.lists {
   margin: 0px auto 0;
   width: 400px;
   overflow:hidden;
   height: auto;
-  position: relative;
+  /*position: relative;*/
   margin: auto;
   padding:0px;
-  list-style-type:none;
 }
 
-.list li{
-  position:relative;
-  text-align:center;
-  clear: right;
-  margin: 30px;
-  height: 24px;
-  border-radius: 5px;
-  list-style-type: none;
-  display: block;
+table{
+  margin: 50px;
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.lists .check{
+  width: 20px;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.lists .goal{
+  width: 200px;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.lists .goal a{
+  color: #f6e9e9;
+  font-size: 20px;
   text-decoration: none;
+  text-align: left;
 }
 
-.list input{
-  float: left;
-  font-size: 24px;
-  color: #f6e9e9;
-  margin-right: 20px;
+.lists .delete{
+  width: 20px;
+  padding: 10px;
+  vertical-align: top;
 }
 
-.list input:last-child{
-  float: left;
-  font-size: 24px;
-  color: #f6e9e9;
-}
-
-.list a{
-  float: left;
-  font-size: 24px;
-  color: #f6e9e9;
-  margin-right: 20px;
-  text-decoration: none;
+.lists .edit{
+  width: 20px;
+  padding: 10px;
+  vertical-align: top;
 }
 
 .profile{
@@ -230,4 +242,89 @@ header {
   font-size: 24px;
   color: #f6e9e9;
   margin: 20px;
+}
+
+.profile .list form{
+  float: left;
+  font-size: 24px;
+  color: #f6e9e9;
+  margin: 20px;
+}
+
+.profile .follow input{
+  position:relative;
+  display:block;
+  margin: 10px auto;
+  padding: 0px;
+  text-align: center;
+  height: 42px;
+  width:128px;
+  font-size: 24px;
+  background: #e16428;
+  color: #f6e9e9;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.chart {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.chart canvas {
+  margin: 20px auto;
+}
+
+.chart h3 {
+  width: 276px;
+  font-size: 20px;
+  text-align: center;
+  color: #e4dbdb;
+  margin: auto;
+}
+
+.chart_container{
+  margin:10px auto;
+  width: 375px;
+  text-align:center;
+  padding:40px;
+}
+
+.chart_container h2{
+  width: 276px;
+  font-size: 30px;
+  text-align: center;
+  color: #e4dbdb;
+  padding-bottom: 23px;
+  margin: 60px auto 23px;
+  border-bottom: solid 1px;
+}
+
+.result{
+  margin:70px auto;
+  width: 375px;
+  text-align:center;
+  padding:40px;
+  border-radius: 8px;
+}
+
+.result h2{
+  width: 276px;
+  font-size: 30px;
+  text-align: center;
+  color: #e4dbdb;
+  padding-bottom: 23px;
+  margin: 60px auto 23px;
+  border-bottom: solid 1px;
+}
+
+.result a{
+  width: 276px;
+  font-size: 30px;
+  text-align: center;
+  color: #e4dbdb;
+  margin: 60px auto 23px;
 }

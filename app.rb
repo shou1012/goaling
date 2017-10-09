@@ -212,6 +212,7 @@ get '/notification' do
     hash = {}
     hash[:user_name] = user_name
     hash[:notification_status] = notification_status
+    hash[:notification_time] = notification.created_at
     @users << hash
   end
   erb :notification
@@ -226,10 +227,11 @@ get '/timeline' do
     @notifications.each do |notification|
       user_name = User.find_by(id: notification.user_id).name
       notification_status = notification.status
+      notification_time = notification.created_at
       hash = {}
       hash[:user_name] = user_name
       hash[:notification_status] = notification_status
-      hash[:notification_time] = notification.tim
+      hash[:notification_time] = notification_time
       users << hash
     end
     @actions << users

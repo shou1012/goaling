@@ -1,5 +1,10 @@
-<%= @goal.title %>
-<% @checks.each do |check| %>
-  <%= check.checked_time %>
-<% end %>
-<%= @checks.count %>
+<div class = "chart_container">
+  <h2><%= @goal.title %></h2>
+  <% @checks.each do |check| %>
+    <%= check.checked_time %>
+  <% end %>
+
+  <span class="chart" data-percent="15">
+  <h3>15回</h3>
+  </span>
+</div>

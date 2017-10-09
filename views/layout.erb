@@ -5,6 +5,7 @@
     <title>Goaling</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   </head>
 <body>
   <div id="content">
@@ -31,7 +32,7 @@
     </div>
   </div>
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/scripts/jquery.easypiechart.min.js"></script>
 <script src="/scripts/animatedModal.min.js"></script>
 <script>
   $(function() {
@@ -41,6 +42,13 @@
       animatedOut:'fadeOutUp',
       animationDuration:'1s',
       color: '#363333'
+    });
+    $('.chart').easyPieChart({
+        barColor:'#e16428',
+				scaleColor:false,
+				lineWidth:50,
+				lineCap:'circle',
+        size: 200
     });
   });
 </script>

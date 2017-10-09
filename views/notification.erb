@@ -1,8 +1,10 @@
 <ul class='timeline'>
   <% @users.each do |user| %>
     <li class="event">
+      <img src="/hanchan.png"></img>
       <%= user[:user_name] %>さんが
       あなたを<%= user[:notification_status] %>しました
+      <%= user[:notification_time].strftime("%H:%M") %>
     </li>
   <% end %>
 </ul>

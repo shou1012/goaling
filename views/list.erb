@@ -3,23 +3,41 @@
     <h2> Enter New Goals </h2>
   <% else %>
     <h2><%= @date.strftime("%m/%d %a") %></h2>
-    <% @goals.each do |goal| %>
-    <ul class = "list">
-      <li>
-        <form action="/goals/<%= goal.id %>/check" method="post">
-          <input type="image" src="/SVG/checkbox-unchecked.svg" alt="Check">
-        </form>
-        <a href="/goals/<%= goal.id %>"><%= CGI.escapeHTML(goal.title) %></a>
-        <form action="/goals/<%= goal.id %>/delete" method="post">
-          <input type="image" src="/SVG/bin.svg" alt="Delete">
-        </form>
-        <form action="/goals/<%= goal.id %>/edit" method="get">
-          <input type="image" src="/SVG/pencil.svg" alt="Delete">
-        </form>
-      </li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th scope="cols"></th>
+          <th scope="cols"></th>
+          <th　scope="cols"></th>
+          <th　scope="cols"></th>
+        </tr>
+      </thead>
+      <% @goals.each do |goal| %>
+      <tbody>
+        <tr>
+          <td class = "check">
+            <form action="/goals/<%= goal.id %>/check" method="post">
+              <input type="image" src="/SVG/checkbox-unchecked.svg" alt="Check">
+            </form>
+          </td>
+          <td class = "goal">
+            <a href="/goals/<%= goal.id %>"><%= CGI.escapeHTML(goal.title) %></a>
+          </td>
+          <td class = "delete">
+            <form action="/goals/<%= goal.id %>/delete" method="post">
+              <input type="image" src="/SVG/bin.svg" alt="Delete">
+            </form>
+          </td>
+          <td class = "edit">
+            <form action="/goals/<%= goal.id %>/edit" method="get">
+              <input type="image" src="/SVG/pencil.svg" alt="Delete">
+            </form>
+          </td>
+        </tr>
+    </tbody>
     <% end %>
-  <% end %>
+  </table>
+<% end %>
   <div class = "forms">
     <form action="/goals" method="post">
       <input type="text" name="title" placeholder="Enter new"><br>

@@ -1,4 +1,6 @@
+<div class = "result">
 <h2>Here's your Friends</h2>
   <% @users.each do |user| %>
     <a href="/user/<%= user.id %>"><%= user.name %></a>
   <% end %>
+</div>

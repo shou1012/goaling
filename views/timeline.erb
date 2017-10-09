@@ -2,8 +2,12 @@
   <% @actions.each do |action| %>
     <% action.each do |user| %>
       <li class="event">
-        <%= user[:user_name] %>さんが
-        <%= user[:notification_status] %>しました
+        <img src="/hanchan.png"></img>
+        <p>
+          <%= user[:user_name] %>さんが
+          <%= user[:notification_status] %>しました
+          <%= user[:notification_time].strftime("%H:%M") %>
+        </p>
       </li>
     <% end %>
   <% end %>
