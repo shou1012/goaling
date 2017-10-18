@@ -7,13 +7,28 @@
     <p>Follow <%= @follows.count %></p>
     <p>Follower <%= @followers.count %></p>
   </div>
-  <ul class = "list">
+  <table>
+    <thead>
+      <tr>
+        <th scope="cols"></th>
+        <th scope="cols"></th>
+        <th　scope="cols"></th>
+      </tr>
+    </thead>
     <% @goals.each do |goal| %>
-    <li>
-      <%= goal.title %>
-      <img src="/SVG/star.svg" alt="favorite">
-      <%= goal.favorite %>
-    </li>
+    <tbody>
+      <tr>
+        <td class = "goal">
+          <p><%= goal.title %></p>
+        </td>
+        <td class = "star">
+          <img src="/SVG/star.svg" alt="favorite">
+        </td>
+        <td class = "favorite">
+          <a><%= goal.favorite %></a>
+        </td>
+      </tr>
+  </tbody>
     <% end %>
-  </ul>
+</table>
 </div>

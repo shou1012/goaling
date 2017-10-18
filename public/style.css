@@ -46,6 +46,12 @@ header {
   border-radius: 8px;
 }
 
+.forms .form img{
+  width:200px;
+  height:200px;
+  margin: 30px;
+}
+
 .forms h2 {
   color: #f6e9e9;
   font-weight:400;
@@ -171,7 +177,7 @@ header {
   padding:0px;
 }
 
-table{
+.lists table{
   margin: 50px;
   border-collapse: separate;
   border-spacing: 1px;
@@ -230,6 +236,36 @@ table{
   font-size: 20px;
   float: left;
   margin: 0px 30px;
+}
+
+.profile .goal{
+  width: 300px;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.profile .star{
+  width: 20px;
+  padding: 10px;
+  vertical-align: top;
+}
+.profile .favorite{
+  width: 20px;
+  padding: 10px;
+  vertical-align: top;
+}
+.profile .favorite a{
+  color: #f6e9e9;
+  font-size: 20px;
+  vertical-align: top;
+}
+
+.profile .goal p{
+  color: #f6e9e9;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: left;
+  white-space: nowrap;
 }
 
 .friends{
